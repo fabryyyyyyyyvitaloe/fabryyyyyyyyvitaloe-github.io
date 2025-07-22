@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #89f7fe, #66a6ff);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+        }
+        .gallery img {
+            width: 90%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .center-content {
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+        p {
+            font-size: 1.3em;
+            margin: 15px auto;
+            max-width: 500px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .heart {
+            font-size: 4em;
+            animation: latido 1s infinite;
+        }
+        @keyframes latido {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .media-section {
+            margin-top: 30px;
+        }
+        .media-section div {
+            margin: 10px auto;
+        }
+        .media-section video, .media-section img {
+            max-width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 1em;
+            opacity: 0.8;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        /* Confeti */
+        .confetti {
+            position: fixed;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            opacity: 0.7;
+            animation: caer 5s linear infinite;
+        }
+        @keyframes caer {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Galería izquierda -->
+        <div class="gallery">
+            <img src="teamo/tapia1.jpg">
+            <img src="teamo/tapia2.jpg">
+            <img src="teamo/tapia3.jpg">
+        </div>
+
+        <!-- Contenido central -->
+        <div class="center-content">
+            <h1>Feliz 2 meses, mi amor 💙</h1>
+            <div class="heart">💙</div>
+            <p>
+                HOLA mi amrcito, jeje hoy justo hoy cumplimos dos meses, eso es algo lindo mi bb
+		porque de alguna manera todo esto me hace sentir muy muy feliz mi lindo niño, tú sabes 
+		que no soy muy bueno haciendo manualidades o cosas asi mi bebé, es por ello que he 
+		decidido hacer algoen lo que mas o menos soy bueno, te he decicido hacer una pagina amor,
+		no sé como subirla jeje pero lo haré mi cielito, tú podras verla y podras apreciarla mi
+		mi amorcito porque aún no olvido lo que tú me has regalado mi amor, cosas en lo que eres 
+		bueno mi amor, yo quiero creer que soy bueno en esto, y te lo quiero enseñar y demostrar 
+		mi amor.
+            </p>
+            <p>
+                ¡Te amo muchísimo!  
+                ¡MUCHO! ¡MUCHO! MI AMOR, esta pagina es para recordarte siempre siempre mi bebé lindo 
+		lo importante que eres para mi, cada detalle, cada momento, cada sonrisa tuya mi cielo,
+		todo lo que haces mi principé, todo lo que demuestras, todo lo que puedas imaginar corazón,
+		¡TODO ES IMPORTANTE PARA MI Y SIEMPRE TE LO QUIERO DEMOSTRAR!
+		¡TE AMO!
+            </p>
+            
+   	   <p id="carta"></p>
+<script>
+    const texto = "Amor, gracias por estos dos meses tan hermosos. No tienes idea de cuánto me haces sonreír y cuánto TE AMOOOOOOOOOOOOOOO. ♥";
+    let i = 0;
+    function escribirCarta() {
+        if (i < texto.length) {
+            document.getElementById("carta").innerHTML += texto.charAt(i);
+            i++;
+            setTimeout(escribirCarta, 70);
+        }
+    }
+    escribirCarta();
+</script>
+
+
+
+	<!-- Botón para iniciar la música -->
+<button id="playMusicBtn" class="play-music-btn" type="button">
+    💙jeje
+</button>
+
+<!-- Audio (sin autoplay) -->
+<audio id="musica" preload="auto">
+    <source src="teamo/JAJAJA.mp3">
+    <source src="teamo/JAJAJA.mp3">
+    Tu navegador no soporta audio.
+</audio>
+
+<style>
+.play-music-btn {
+    margin-top: 25px;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(to right, #89f7fe, #66a6ff);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,.25);
+    transition: transform .15s ease, box-shadow .15s ease, opacity .3s ease;
+}
+.play-music-btn:hover:not(.playing) {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0,0,0,.35);
+}
+.play-music-btn.playing {
+    opacity: .6;
+    cursor: default;
+}
+</style>
+
+<script>
+(function(){
+    const btn = document.getElementById('playMusicBtn');
+    const audio = document.getElementById('musica');
+
+    // Por si el volumen viene raro de algunos navegadores
+    audio.volume = 0;
+
+    function fadeIn(el, ms = 3000, target = 1.0) {
+        const steps = 30;
+        const stepTime = ms / steps;
+        let current = 0;
+        const inc = target / steps;
+        const fade = setInterval(() => {
+            current += inc;
+            el.volume = Math.min(current, target);
+            if (current >= target) clearInterval(fade);
+        }, stepTime);
+    }
+
+    async function startMusic() {
+        try {
+            audio.muted = false;      // asegúrate de que no esté silenciado
+            audio.loop = true;        // repite
+            // Reinicia por si ya sonó antes
+            audio.currentTime = 0;
+            // Inicia reproducción
+            await audio.play();
+            fadeIn(audio, 3000, 1.0);
+            btn.textContent = '🎵 Reproduciendo...';
+            btn.classList.add('playing');
+            btn.disabled = true;
+        } catch (err) {
+            console.warn('No se pudo reproducir:', err);
+            btn.textContent = 'Intenta de nuevo para escuchar la canción 🎵';
+            btn.disabled = false;
+        }
+    }
+
+    btn.addEventListener('click', startMusic);
+
+    // Por si hace clic en cualquier otra parte primero
+    let started = false;
+    function tryStartOnce() {
+        if (!started) {
+            started = true;
+            startMusic();
+        }
+    }
+    // Si quieres que *cualquier* interacción arranque la música, descomenta:
+    // document.addEventListener('click', tryStartOnce, { once: true });
+})();
+</script>
+
+
+            <!-- Sección de Videos/GIFs -->
+            <div class="media-section">
+                <div>
+                    <video autoplay muted loop>
+                        <source src="teamo/tapia15.mp4">>
+                        Tu navegador no soporta videos.
+                    </video>
+                </div>
+                <div>
+                    <img src="gif1.gif" alt="un gato q se parece a ti">
+                </div>
+<button onclick="document.getElementById('sorpresa').style.display='block'">
+    🎁 Haz clic para tu sorpresa
+</button>
+<div id="sorpresa" style="display:none; margin-top:20px;">
+    <h2>¡Te amo más que ayer y menos que mañana! 💙</h2>
+    <img src="teamo/tapia8.jpg" style="max-width:80%; border-radius:10px;">
+</div>
+
+
+                <div>
+                    <video autoplay muted loop>
+                        <source src="teamo/tapia12.mp4">
+                        Tu navegador no soporta videos.
+                    </video>
+                </div>
+            </div>
+
+            <footer>bello cmo tú 💕</footer>
+        </div>
+
+        <!-- Galería derecha -->
+        <div class="gallery">
+            <img src="teamo/tapia6.jpg">
+            <img src="teamo/tapia7.jpg">
+            <img src="teamo/tapia5.jpg">
+	    <img src="teamo/tapia0.jpg">
+        </div>
+    </div>
+
+        <!-- Confeti -->
+    <script>
+        function crearConfeti() {
+            const confeti = document.createElement("div");
+            confeti.classList.add("confetti");
+            confeti.style.left = Math.random() * window.innerWidth + "px";
+            confeti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+            confeti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(confeti);
+            setTimeout(() => confeti.remove(), 5000);
+        }
+        setInterval(crearConfeti, 200);
+    </script>
+</body>
+</html>
